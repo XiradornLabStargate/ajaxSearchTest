@@ -8,23 +8,23 @@ else
     xhr = new ActiveXObject("Microsoft.XMLHTTP")
 
 x.onclick = (event) ->
-    city = document.getElementById('city').value;
-    # http request
-    xhr.open('GET', 'engine.php?city='+city, true)
-    xhr.send()
-    #http response
-    xhr.onreadystatechange = ->
-        # console.log xhr
-        if xhr.readyState == 4 and xhr.status == 200
-            targ.innerHTML = xhr.responseText
+    xhrfn()
 
 c.onkeyup = (event) ->
+    xhrfn()
+
+xhrfn = () ->
     city = document.getElementById('city').value;
     # http request
-    xhr.open('GET', 'engine.php?city='+city, true)
+    xhr.open('GET', 'engine.json', true)
     xhr.send()
     #http response
     xhr.onreadystatechange = ->
         # console.log xhr
         if xhr.readyState == 4 and xhr.status == 200
-            targ.innerHTML = xhr.responseText
+            aj = JSON.parse xhr.responseText
+
+            if aj[city]
+                targ.innerHTML = aj[city]
+            else
+                targ.innerHTML = "Non ho trovato quello che cerchi mi dispiace"

@@ -1,5 +1,5 @@
 (function() {
-  var c, targ, x, xhr;
+  var c, targ, x, xhr, xhrfn;
 
   x = document.getElementById('btn');
 
@@ -14,25 +14,27 @@
   }
 
   x.onclick = function(event) {
-    var city;
-    city = document.getElementById('city').value;
-    xhr.open('GET', 'engine.php?city=' + city, true);
-    xhr.send();
-    return xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        return targ.innerHTML = xhr.responseText;
-      }
-    };
+    return xhrfn();
   };
 
   c.onkeyup = function(event) {
+    return xhrfn();
+  };
+
+  xhrfn = function() {
     var city;
     city = document.getElementById('city').value;
-    xhr.open('GET', 'engine.php?city=' + city, true);
+    xhr.open('GET', 'engine.json', true);
     xhr.send();
     return xhr.onreadystatechange = function() {
+      var aj;
       if (xhr.readyState === 4 && xhr.status === 200) {
-        return targ.innerHTML = xhr.responseText;
+        aj = JSON.parse(xhr.responseText);
+        if (aj[city]) {
+          return targ.innerHTML = aj[city];
+        } else {
+          return targ.innerHTML = "Non ho trovato quello che cerchi mi dispiace";
+        }
       }
     };
   };
