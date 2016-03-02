@@ -23,7 +23,7 @@
 
   xhrfn = function() {
     var city;
-    city = document.getElementById('city').value;
+    city = document.getElementById('city').value.toLowerCase();
     xhr.open('GET', 'engine.json', true);
     xhr.send();
     return xhr.onreadystatechange = function() {

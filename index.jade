@@ -3,7 +3,8 @@ html(lang="en")
 head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width; initial-scale=1.0")
-    title Document
+    meta(http-equiv="X-UA-Compatible", content="IE=Edge")
+    title Ajax Search JSON
     
     link(href="assets/css/app.css", type="text/css", rel="stylesheet")
 body
@@ -13,7 +14,7 @@ body
             small Sir Xiradorn &copy; 2016
         
         form(method="GET")
-            input(id="city", name="city", type="text", autocomplete="off", placeholder="... digita il testo qua ...")
+            input(id="city", name="city", type="text", autocomplete="off", autofocus, placeholder="... digita il testo qua ...")
             input(id="btn", type="button", name="ajax", value="ajax")
             small Valori consigliati: 
             small 

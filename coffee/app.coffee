@@ -14,7 +14,7 @@ c.onkeyup = (event) ->
     xhrfn()
 
 xhrfn = () ->
-    city = document.getElementById('city').value;
+    city = document.getElementById('city').value.toLowerCase()
     # http request
     xhr.open('GET', 'engine.json', true)
     xhr.send()
