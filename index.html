@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+  <title>Ajax Search JSON</title>
+  <link href="assets/css/app.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container">
+    <div class="headline">
+      <h1>Ajax Search</h1><small>Sir Xiradorn &copy; 2016</small>
+    </div>
+    <form method="GET">
+      <input id="city" name="city" type="text" autocomplete="off" autofocus="autofocus" placeholder="... digita il testo qua ..."/>
+      <input id="btn" type="button" name="ajax" value="ajax"/><small>Valori consigliati: </small><small> <strong>roma, milano, napoli </strong></small><small>Case insensitive</small>
+    </form>
+    <p class="label">Messaggio in ritorno da ajax</p>
+    <p id="areaDisplay">Ritorno AJAX</p>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
